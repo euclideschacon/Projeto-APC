@@ -75,6 +75,8 @@ st.title("💡 Simulador de Sustentabilidade Energética em Data Centers")
 # --------------------------------
 st.header("⚙️ Seleção de GPUs")
 
+
+# Informações de TDP foram retiradas do site https://www.nvidia.com
 gpus = {
     "NVIDIA T4": {"tdp": 70, "preco": 15000},
     "NVIDIA A100": {"tdp": 400, "preco": 120000},
@@ -107,6 +109,8 @@ while add_gpu:
 # --------------------------------
 # Bandeira tarifária
 # --------------------------------
+# O preço da bandeira verde foi extraído do site da Neonergia (https://www.neoenergia.com/web/brasilia/sua-casa/composicao-tarifaria).
+# O incremento de valor para as demais bandeiras foi extrído do site da ANEEL (https://www.gov.br/aneel/pt-br/assuntos/tarifas/bandeiras-tarifarias)
 st.header("⚡ Bandeira Tarifária (ANEEL)")
 bandeiras = {
     "🟩 Verde": 0.82672,
@@ -184,8 +188,9 @@ meses_break_even, horas_break_even = calcular_break_even(custo_energia_mensal, r
 # --------------------------------
 st.header("📊 Resultados da Simulação")
 
+# TDP significa Thermal Design Power que é a Potência Máxima na qual a GPU foi projetada
 st.write(f"**TDP total das GPUs:** {tdp_total} W")
-st.write(f"**Consumo total do servidor (estimado):** {tdp_total_servidor:.0f} W")
+st.write(f"**Potência total do servidor (estimado):** {tdp_total_servidor:.0f} W")
 st.write(f"**Consumo mensal de energia:** {consumo_kwh_mensal:.2f} kWh")
 st.write(f"**Custo mensal de energia (bandeira {bandeira}):** R$ {custo_energia_mensal:,.2f}")
 st.write(f"**Custo mensal cobrado por {concorrente_nome}:** R$ {custo_concorrente_mensal_total:,.2f}")
