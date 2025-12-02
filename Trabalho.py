@@ -13,7 +13,7 @@ def calcular_custo_gpus(gpu_data):
     """Calcula o custo total de aquisição das GPUs."""
     return sum(g["quantidade"] * g["preco_unitario"] for g in gpu_data)
 
-# Conideramos o exposto no artigo: Data Centers and Their Energy Consumption: Frequently Asked Questions August 26, 2025. Que informa que 40% do consumo de energia elétrica de Data center é proviniente das GPus.
+# Consideramos o exposto no artigo: Data Centers and Their Energy Consumption: Frequently Asked Questions August 26, 2025. Que informa que 40% do consumo de energia elétrica de Data center é proviniente das GPus.
 def calcular_consumo_total_servidor(tdp_total):
     """Estima o TDP total do servidor considerando que as GPUs representam 40% do consumo."""
     return tdp_total * 2.5
